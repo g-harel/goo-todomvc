@@ -1,0 +1,33 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 8
+	},
+	"extends": "google",
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": 0,
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"switch-colon-spacing": "off",
+		"max-len": "off",
+		"no-throw-literal": "off",
+		"strict": [
+			"error",
+			"global"
+		],
+		"no-tabs": "off"
+	}
+}

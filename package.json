@@ -1,19 +1,27 @@
 {
-  "name": "goo-todomvc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/g-harel/goo-todomvc.git"
-  },
-  "author": "g-harel",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/g-harel/goo-todomvc/issues"
-  },
-  "homepage": "https://github.com/g-harel/goo-todomvc#readme"
+	"name": "goo-todomvc",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/g-harel/goo-todomvc.git"
+	},
+	"author": "g-harel",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/g-harel/goo-todomvc/issues"
+	},
+	"homepage": "https://github.com/g-harel/goo-todomvc#readme",
+	"devDependencies": {
+		"eslint": "^4.2.0",
+		"eslint-config-google": "^0.9.1"
+	},
+	"dependencies": {
+		"todomvc-app-css": "^2.1.0",
+		"todomvc-common": "^1.0.3"
+	}
 }
