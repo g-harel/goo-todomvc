@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "node server"
 	},
 	"repository": {
 		"type": "git",
@@ -18,10 +18,7 @@
 	"homepage": "https://github.com/g-harel/goo-todomvc#readme",
 	"devDependencies": {
 		"eslint": "^4.2.0",
-		"eslint-config-google": "^0.9.1"
-	},
-	"dependencies": {
-		"todomvc-app-css": "^2.1.0",
-		"todomvc-common": "^1.0.3"
+		"eslint-config-google": "^0.9.1",
+		"express": "^4.15.3"
 	}
 }

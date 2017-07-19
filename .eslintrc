@@ -28,6 +28,7 @@
 			"error",
 			"global"
 		],
-		"no-tabs": "off"
+		"no-tabs": "off",
+		"no-unused-vars": "off"
 	}
 }
