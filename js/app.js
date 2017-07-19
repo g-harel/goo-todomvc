@@ -32,6 +32,7 @@ app.setState({
 			text: 'test',
 		},
 	],
+	editedItem: null,
 });
 
 app.use({action: {
@@ -57,6 +58,28 @@ app.use({action: {
 	target: ['items'],
 	handler: (items, index) => {
 		items[index].completed = !items[index].completed;
+		return items;
+	},
+}});
+
+app.use({action: {
+	type: 'START_EDIT',
+	target: ['editedItem'],
+	handler: (items, index) => index,
+}});
+
+app.use({middleware: (next, state, type) => {
+	if (type !== 'START_EDIT') {
+		state.editedItem = null;
+	}
+	next(state);
+}});
+
+app.use({action: {
+	type: 'END_EDIT',
+	target: ['items'],
+	handler: (items, {index, value}) => {
+		items[index].text = value;
 		return items;
 	},
 }});
@@ -107,18 +130,50 @@ const Header = () => {
 				'todos',
 			]],
 			['form', {onsubmit}, [
-				['input.new-todo', {autofocus: true, placeholder: 'What needs to be done?'}],
+				['input.new-todo', {
+					autofocus: true,
+					placeholder: 'What needs to be done?',
+				}],
 			]],
 		]]
 	);
 };
 
-const Item = ({item, index, currFilter}) => {
+const EditInput = ({index, text}) => {
+	const submit = (value) => {
+		value = value.trim();
+		if (!value) {
+			app.act('REMOVE', index);
+			return;
+		}
+		app.act('END_EDIT', {index, value});
+	};
+	const onsubmit = (e) => {
+		e.preventDefault();
+		submit(e.target.querySelector('input').value);
+	};
+	const onblur = (e) => {
+		submit(e.target.value);
+	};
+	return (
+		['form', {onsubmit}, [
+			['input.edit', {value: text, onblur}],
+		]]
+	);
+};
+
+const Item = ({item, index, currFilter, editedItem}) => {
 	if (!filters[currFilter].filter(item)) {
 		return null;
 	}
 	const {completed, text} = item;
-	const className = completed ? 'completed' : null;
+	let className = completed ? 'completed' : '';
+	if (index === editedItem) {
+		className += ' editing';
+		setTimeout(() => {
+			document.querySelectorAll('input.edit')[index].focus();
+		}, 0);
+	}
 	return (
 		['li', {className}, [
 			['div.view', {}, [
@@ -127,19 +182,21 @@ const Item = ({item, index, currFilter}) => {
 					checked: completed,
 					onclick: () => app.act('TOGGLE', index),
 				}],
-				['label', {}, [
+				['label', {
+					ondblclick: () => app.act('START_EDIT', index),
+				}, [
 					text,
 				]],
 				['button.destroy', {
 					onclick: () => app.act('REMOVE', index),
 				}],
 			]],
-			['input.edit', {value: text}],
+			[EditInput, {index, text}],
 		]]
 	);
 };
 
-const Main = ({currFilter, items}) => {
+const Main = ({currFilter, items, editedItem}) => {
 	return (
 		['section.main', {}, [
 			['input#toggle-all.toggle-all', {type: 'checkbox'}],
@@ -151,7 +208,7 @@ const Main = ({currFilter, items}) => {
 			]],
 			['ul.todo-list', {},
 				items.map((item, index) => (
-					[Item, {item, index, currFilter}]
+					[Item, {item, index, currFilter, editedItem}]
 				)),
 			],
 		]]
