@@ -1,5 +1,5 @@
 {
-	"name": "goo-todomvc",
+	"name": "okwolo-todomvc",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -8,14 +8,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/g-harel/goo-todomvc.git"
+		"url": "git+https://github.com/okwolo/okwolo-todomvc.git"
 	},
 	"author": "g-harel",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/g-harel/goo-todomvc/issues"
+		"url": "https://github.com/okwolo/okwolo-todomvc/issues"
 	},
-	"homepage": "https://github.com/g-harel/goo-todomvc#readme",
+	"homepage": "https://github.com/okwolo/okwolo-todomvc#readme",
 	"devDependencies": {
 		"eslint": "^4.2.0",
 		"eslint-config-google": "^0.9.1",

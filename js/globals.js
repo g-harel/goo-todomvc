@@ -1,8 +1,8 @@
 'use strict';
 
-const localStorageKey = 'goo-todomvc';
+const localStorageKey = 'okwolo-todomvc';
 
-const app = goo(document.body);
+const app = okwolo(document.body);
 
 const defaultState = {
 	items: [],
