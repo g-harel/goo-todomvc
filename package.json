@@ -17,8 +17,8 @@
 	},
 	"homepage": "https://github.com/okwolo/okwolo-todomvc#readme",
 	"devDependencies": {
-		"eslint": "^4.2.0",
+		"eslint": "^4.6.1",
 		"eslint-config-google": "^0.9.1",
-		"express": "^4.15.3"
+		"express": "^4.15.4"
 	}
 }

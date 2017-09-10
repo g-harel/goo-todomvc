@@ -4,7 +4,7 @@
 
 > okwolo is a light javascript framework to build web applications
 
-> _[okwolo - github.com/okwolo/okwolo](https://github.com/okwolo/okwolo)_
+_[okwolo - github.com/okwolo/okwolo](https://github.com/okwolo/okwolo)_
 
 
 ### Running
@@ -14,4 +14,6 @@ $ npm install
 $ npm start
 ```
 
-This will start a small node server on port 8080 and host this implementation. Alternatively, opening the `index.html` file will also work, but the routing will not be visible in the address bar.
+This will start a small node server on port 8080. Alternatively, opening the `index.html` file will also work, but the routing will not be visible in the address bar.
+
+Hosted [here](https://okwolo.github.io/okwolo-todomvc/index.html) through github pages.

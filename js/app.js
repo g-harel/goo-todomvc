@@ -8,6 +8,11 @@ app.use({watcher: (state) => {
 	localStorage.setItem(localStorageKey, JSON.stringify(state));
 }});
 
+// base url is different when hosted on github pages
+if (window.location.hostname.match(/github\.io/)) {
+	app.use({base: '/okwolo-todomvc'});
+}
+
 app('/:currFilter?', ({currFilter}) => (state) => {
 	if (!filters[currFilter]) {
 		currFilter = 'all';
